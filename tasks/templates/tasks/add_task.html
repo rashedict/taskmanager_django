@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Task - Task Manager{% endblock %}
+
+{% block content %}
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #444;
+    }
+
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .form-container input.title-field {
+        font-size: 18px;
+        padding: 14px;
+        border: 1.5px solid #666;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+        background-color: #0056b3;
+    }
+
+    .form-container .links {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .form-container .links a {
+        color: #007bff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    .form-container .links a:hover {
+        text-decoration: underline;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+
+<div class="form-container">
+    <h1>Add a New Task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Task</button>
+    </form>
+
+    <div class="links">
+        <a href="{% url 'task-list' %}">Go to Task List</a> |
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

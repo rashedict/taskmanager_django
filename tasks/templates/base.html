@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Task Manager{% endblock %}</title>
+    {% load static %}
+    <!-- Link to the nav.css file -->
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="{% url 'home' %}" class="{% if request.path == '/home/' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'task-list' %}" class="{% if request.path == '/task-list/' %}active{% endif %}">Task List</a></li>
+                <li><a href="{% url 'task-add' %}" class="{% if request.path == '/task-add/' %}active{% endif %}">Add Task</a></li>
+                <li><a href="{% url 'logout' %}" class="{% if request.path == '/accounts/logout/' %}active{% endif %}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content of the page -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

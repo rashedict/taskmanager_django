@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Task Manager{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome, {{ request.user.username }}!</h1>
+        <p>This is your home page.</p>
+        <div class="links">
+            <a href="{% url 'task-list' %}">Go to Task List</a> |
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+{% endblock %}

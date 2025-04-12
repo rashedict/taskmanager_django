@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Task List - Task Manager{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/task-list.css' %}">
+
+    <div class="container">
+        <h1>My Tasks</h1>
+
+        {% if tasks %}
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.title }}</td>
+                            <td>{% if task.completed %}✅ Completed{% else %}❌ Pending{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No tasks found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
