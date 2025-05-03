@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 Django==5.1.6
 mysqlclient==2.1.1
 =======
 Django==5.1.6
 mysqlclient==2.1.1
->>>>>>> be6276b (Initial commit for taskmanager microservice)
